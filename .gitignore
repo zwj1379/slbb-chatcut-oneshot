@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.env
+
+# 运行时产物（剪辑工作目录，勿入库）
+output/
+tmp/
+*.mp4
+*.mov
+*.m4a
+*.wav
+*.mp3
+*.srt
+*.vtt
+
+# 编辑器
+.idea/
+.vscode/
