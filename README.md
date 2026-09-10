@@ -11,10 +11,10 @@ Drop in a talking-head clip (or a folder of them), and it auto-edits to a publis
 - Speed up the whole timeline at 1.1×
 - Cover with full-screen B-Roll + a real-person PiP in the top-right corner (landscape sources fit via `cover`)
 - Single-line black-on-white Simplified Chinese subtitles (overflow → split by semantics, never wrap)
-- Lay a pre-mixed BGM bed (BGM + opening SFX) with duck `-6 dB` and gain `+6 dB`
+- Lay a BGM bed (BGM + opening SFX baked into a single track) with duck `-6 dB` and gain `+6 dB` — **your own upload wins; if you don't upload one, the bundled `assets/bgm.mp3` is used automatically**
 - Export 1080P H.264 to your Desktop
 
-中文流程同上：删废话停顿、1.1× 提速、全屏 B-Roll + 真人画中画、单行黑底白字字幕、铺背景音频、1080P H.264 导出。
+中文流程同上：删废话停顿、1.1× 提速、全屏 B-Roll + 真人画中画、单行黑底白字字幕、铺背景音频（**自己上传的优先，没上传就自动用内置 `assets/bgm.mp3`，不用你再找素材**）、1080P H.264 导出。
 
 ## Modes / 模式
 
@@ -26,7 +26,7 @@ Batch folder layout / 批量文件夹结构：
 
 ```
 口播批量-<主题>/
-├── 背景音频.mp3          # 全批共用（可选，缺则问用户要）
+├── 背景音频.mp3          # 全批共用（可选，缺则自动用内置默认）
 ├── broll/                # B-Roll 池 3~5 个（可选）
 ├── 01_<主题>/
 │   ├── 主视频.mp4        # 必填，每文件夹唯一
@@ -88,6 +88,7 @@ After installation, **restart WorkBuddy or start a new conversation** so the new
 | `scripts/ensure-chatcut.py` | 环境预检 / 自动安装（macOS + Windows，弹窗引导 + 自动装 + 补 MCP 连接） |
 | `scripts/install-macos.command` | macOS 双击启动器 |
 | `scripts/install-windows.cmd` | Windows 双击启动器 |
+| `assets/bgm.mp3` | 内置默认背景音乐（45.6 秒 / 1.0MB，开头已含开场音效）。用户没上传背景音频时自动使用；`.gitignore` 里有 `!assets/**` 例外专门放行它 |
 | `agents/openai.yaml` | OpenAI Agents 协议声明（`display_name` / `default_prompt`） |
 | `references/technical-guardrails.md` | 执行层技术护栏：转写、改速、B-Roll / 画中画、字幕、音频、像素验证、导出 |
 | `references/install-chatcut.md` | ChatCut 安装事实来源：官方入口、MCP 注册、OAuth 兜底流程、常见坑 |

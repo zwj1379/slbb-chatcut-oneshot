@@ -17,6 +17,12 @@ tmp/
 *.srt
 *.vtt
 
+# 例外：内置素材必须入库（默认 BGM 等）
+# 注意：上面的 *.mp3/*.m4a/*.wav 会连内置素材一起忽略，
+# 少了这两行，assets/bgm.mp3 永远推不上远端。
+!assets/
+!assets/**
+
 # 编辑器
 .idea/
 .vscode/
